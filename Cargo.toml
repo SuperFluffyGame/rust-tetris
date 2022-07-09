@@ -1,0 +1,17 @@
+[package]
+name = "real_tetris"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+
+[dependencies]
+winit = "0.26"
+env_logger = "0.9"
+log = "0.4"
+wgpu = "0.13"
+image = "0.24.2"
+tokio = { version = "1", features = ["full"] }
+anyhow = "1"
+bytemuck = { version = "1.4", features = [ "derive" ] }
