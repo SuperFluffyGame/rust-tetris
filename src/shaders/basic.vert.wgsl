@@ -9,17 +9,20 @@ struct VertexOutput {
 
 @group(0) @binding(2) var<uniform> size: vec2<f32>;
 
+
 @vertex
 fn vs_main(
     in: VertexInput,
 ) -> VertexOutput {
     var out: VertexOutput;
 
+    var scale = 1.25;
+
     var aspect = size.x / size.y;
 
     out.position = vec4(
-        in.position.x,
-        in.position.y * aspect,
+        in.position.x * scale,
+        in.position.y * aspect * scale,
         in.position.z,
         1.0,
     );

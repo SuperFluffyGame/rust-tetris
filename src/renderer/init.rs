@@ -49,7 +49,7 @@ impl super::Renderer {
         // buffer stuff
         let vertex_buffer = device.create_buffer(&wgpu::BufferDescriptor {
             label: Some("Vertex Buffer"),
-            size: std::mem::size_of::<Vertex>() as u64 * num_vertices,
+            size: std::mem::size_of::<Vertex>() as u64 * (num_vertices + 24),
             usage: wgpu::BufferUsages::VERTEX | wgpu::BufferUsages::COPY_DST,
             mapped_at_creation: false,
         });
