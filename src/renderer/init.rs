@@ -7,7 +7,7 @@ use wgpu::util::DeviceExt;
 use winit::window::Window;
 
 impl super::Renderer {
-    pub async fn init(window: &Window, num_vertices: u64) -> Result<Self> {
+    pub async fn init(window: &Window, num_vertices: usize) -> Result<Self> {
         let size = window.inner_size();
 
         let instance = wgpu::Instance::new(wgpu::Backends::all());
@@ -49,7 +49,7 @@ impl super::Renderer {
         // buffer stuff
         let vertex_buffer = device.create_buffer(&wgpu::BufferDescriptor {
             label: Some("Vertex Buffer"),
-            size: std::mem::size_of::<Vertex>() as u64 * (num_vertices + 24),
+            size: (std::mem::size_of::<Vertex>() * (num_vertices + 24)) as u64,
             usage: wgpu::BufferUsages::VERTEX | wgpu::BufferUsages::COPY_DST,
             mapped_at_creation: false,
         });
